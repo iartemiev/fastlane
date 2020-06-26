@@ -51,6 +51,10 @@ module Fastlane
           command << "--use-modular-headers"
         end
 
+        if params[:synchronous]
+          command << "--synchronous"
+        end
+        
         result = Actions.sh(command.join(' '))
         UI.success("Successfully pushed Podspec ⬆️ ")
         return result
